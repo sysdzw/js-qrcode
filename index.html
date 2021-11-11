@@ -9,6 +9,12 @@
             height: 400px;
         }
 
+        #container2 {
+        	margin-top:10px;
+            width: 400px;
+            height: 400px;
+        }
+
         #text {
             display: block;
             width: 400px;
@@ -28,11 +34,19 @@
         }
     </style>
 </head>
+<script src="https://cdn.staticfile.org/jquery/1.11.2/jquery.min.js"></script>
 <body>
 <div id="container"></div>
-<input id="text" value="web端基于纯js实现的二维码生成模块">
-<button onclick="makeCode()">Make</button>
+<div id="container2"></div>
+<input id="text" value="在这里输入内容">
+<button onclick="qr.make($('#text').val());">Make</button>
 <script type="text/javascript" src="./dist/qrcode.js"></script>
-<script type="text/javascript" src="./sample.js"></script>
+<script>
+var qr = new QRCode($("#container")[0], {width: 400,height: 400});
+qr.make("1");
+
+qr = new QRCode($("#container2")[0], {width: 400,height: 400});
+qr.make("2");
+</script>
 </body>
 </html>
